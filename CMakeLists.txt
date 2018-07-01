@@ -1,4 +1,8 @@
-cmake_minimum_required(VERSION 3.7)
+#
+# INPUTs:
+#   BUILD_SHARED_LIB: Build shared library instead
+
+cmake_minimum_required(VERSION 3.6) # Android-studio uses 3.6
 project(irr C CXX)
 
 set(CMAKE_ANDROID_ARCH armv7-a)
@@ -120,19 +124,29 @@ foreach(e ${icons})
 endforeach()
 
 # Add an actual target
-add_executable(hello 
-    main.cpp
-    fake-gles-render.c
-    ${pkg_root}/AndroidManifest.xml
-    ${pkg_assets}
-    $<TARGET_OBJECTS:sdl2_static>
-    $<TARGET_OBJECTS:sdl2_main_static>
-    $<TARGET_OBJECTS:irrlicht_static>)
+if(BUILD_SHARED_LIB)
+    add_library(hello SHARED
+        main.cpp
+        fake-gles-render.c
+        $<TARGET_OBJECTS:sdl2_static>
+        $<TARGET_OBJECTS:sdl2_main_static>
+        $<TARGET_OBJECTS:irrlicht_static>)
+else()
+    add_executable(hello 
+        main.cpp
+        fake-gles-render.c
+        ${pkg_root}/AndroidManifest.xml
+        ${pkg_assets}
+        $<TARGET_OBJECTS:sdl2_static>
+        $<TARGET_OBJECTS:sdl2_main_static>
+        $<TARGET_OBJECTS:irrlicht_static>)
+endif()
 
 target_link_libraries(hello
     GLESv2
     EGL
     android
+    log
     )
 
 # Configure NSight Tegra
