@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="nm.clrn.org.irrandroid">
+    package="org.cltn.nm.irrandroid">
 
     <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="26" />
     <uses-feature android:glEsVersion="0x00020000" />
