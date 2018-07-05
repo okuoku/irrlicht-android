@@ -2,16 +2,18 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 28
-}
-
-sourceSets {
-    main {
-        java {
-            srcDir '../../packaging/java'
+    sourceSets {
+        main {
+            java {
+                srcDir '../../packaging/java'
+            }
+            manifest.srcFile './AndroidManifest.xml'
         }
     }
 }
 
+
+
 dependencies {
-    api project(path: ':sdl', configuration: 'default')
+    api project(path: ':sdl')
 }
