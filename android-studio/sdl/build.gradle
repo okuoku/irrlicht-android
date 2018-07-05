@@ -1,0 +1,15 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['.', '../../externals/sdl/android-project/app/src/main/java']
+        }
+    }
+}
+
+

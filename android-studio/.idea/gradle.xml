@@ -9,6 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/mobile" />
+            <option value="$PROJECT_DIR$/nmcore" />
+            <option value="$PROJECT_DIR$/sdl" />
             <option value="$PROJECT_DIR$/tv" />
           </set>
         </option>
