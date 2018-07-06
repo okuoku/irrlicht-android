@@ -28,6 +28,14 @@ android {
         }
     }
     buildToolsVersion '27.0.3'
+    /* Mali Graphics debugger */
+    sourceSets {
+        main {
+            jniLibs.srcDirs += ['c:/Program Files/Arm/Mali Developer Tools/Mali Graphics Debugger v4.9.3/target/android/arm/unrooted/']
+            assets.srcDir '../../assets' //FIXME: Copy this at configure time
+        }
+    }
+
 }
 
 dependencies {
